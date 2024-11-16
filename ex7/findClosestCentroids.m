@@ -23,10 +23,17 @@ idx = zeros(size(X,1), 1);
 
 
 
+%Ciclo para recorrer todos los elementos en X
+for i = 1:size(X, 1)
+    dist = zeros(K, 1); %Arrelo por cada centroide
+     
+    %ciclo que recorre cada centroides
+    for j = 1:K
+        dist(j) = sum(sum((X(i, :) - centroids(j, :)).^2));  %Se calcula las distancias de cada elemento a los centroides
+    end
 
-
-
-
+    [value, idx(i)] = min(dist); %Se calcula el valor minimo de cada centroide conforme a la distancia
+end
 % =============================================================
 
 end

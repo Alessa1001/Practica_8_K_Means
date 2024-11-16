@@ -26,8 +26,9 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
+for k = 1:K 
+    point_indices = find(idx==k); % Se encuentran los índices de los elementos asignados al centroide k
+    centroids(k, :) = sum(X(point_indices, :)) ./ length(point_indices); % Se calcula la nueva posición del centroide k
 
 
 
